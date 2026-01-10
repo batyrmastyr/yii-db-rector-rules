@@ -1,0 +1,60 @@
+on:
+  pull_request:
+    paths-ignore:
+      - 'docs/**'
+      - 'README.md'
+      - '.gitignore'
+
+  push:
+    branches: ['master']
+    paths-ignore:
+      - 'docs/**'
+      - 'README.md'
+      - '.gitignore'
+
+name: unit
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  tests:
+    name: PHP ${{ matrix.php }}
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      max-parallel: 3
+      matrix:
+        php:
+          - 8.1
+
+    steps:
+      - name: Checkout.
+        uses: actions/checkout@v5
+
+      - name: Install PHP with extensions.
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          ini-values: date.timezone='UTC'
+          coverage: pcov
+          tools: composer:v2
+
+      - name: Update composer.
+        run: composer self-update
+
+      - uses: "ramsey/composer-install@v3"
+        with:
+          composer-options: "--prefer-dist --no-interaction --no-progress --ansi"
+
+      - name: Run tests with phpunit.
+        run: vendor/bin/phpunit --coverage-clover=coverage.xml --colors=always
+
+#      - name: Upload coverage to Codecov.
+#        if: matrix.php == '8.5'
+#        uses: codecov/codecov-action@v3
+#        with:
+#          token: ${{ secrets.CODECOV_TOKEN }}
+#          files: ./coverage.xml

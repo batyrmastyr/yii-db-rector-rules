@@ -1,0 +1,28 @@
+{
+    "name": "batyrmastyr/yii-db-rector-rules",
+    "type": "library",
+    "require": {
+        "php": "^8.0"
+    },
+    "require-dev": {
+        "rector/rector": "^2.3",
+        "phpunit/phpunit": "^11.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Batyrmastyr\\YiiDbRectorRules\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Batyrmastyr\\YiiDbRectorRules\\Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "batyrmastyr",
+            "email": "batyrmastyr@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable"
+}
