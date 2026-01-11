@@ -6,7 +6,7 @@ on:
       - '.gitignore'
 
   push:
-    branches: ['master']
+    branches: ['main']
     paths-ignore:
       - 'docs/**'
       - 'README.md'
