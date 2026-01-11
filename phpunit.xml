@@ -4,7 +4,6 @@
          bootstrap="vendor/autoload.php"
          cacheDirectory=".phpunit.cache"
          executionOrder="depends,defects"
-         shortenArraysForExportThreshold="10"
          requireCoverageMetadata="false"
          beStrictAboutCoverageMetadata="true"
          beStrictAboutOutputDuringTests="true"
@@ -18,7 +17,7 @@
         </testsuite>
     </testsuites>
 
-    <source ignoreIndirectDeprecations="false" restrictNotices="false" restrictWarnings="false">
+    <source restrictNotices="false" restrictWarnings="false">
         <include>
             <directory>src</directory>
         </include>
