@@ -1,5 +1,10 @@
 Several Rector rules to upgrade yiisoft/db package from 1.3 to 2.0, mostly for tests.
 
+## Install
+```shell
+composer require --dev batyrmastyr/yii-db-rector-rules
+```
+
 ## How to use
 Add rule set to `rector.php` like below
 ```php
