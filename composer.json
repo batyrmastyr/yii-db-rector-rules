@@ -24,5 +24,6 @@
             "email": "batyrmastyr@gmail.com"
         }
     ],
-    "minimum-stability": "stable"
+    "minimum-stability": "stable",
+    "license": "MIT"
 }

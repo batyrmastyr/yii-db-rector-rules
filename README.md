@@ -14,6 +14,7 @@ return RectorConfig::configure()
 ```
 
 ## What's inside
+- Replace `(new Dsn(arguments))->asString()` with `new Dsn(...)`
 - Remove `InvalidArgumentException`
 - Replace `->getSchema->getRawTableName()` with `->getQuoter()->getRawTableName()`
 - Replace `SchemaInterface::TYPE_*` constants with `ColumnType::*`

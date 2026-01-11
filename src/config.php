@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace Batyrmastyr\YiiDbRectorRules;
 
+use Batyrmastyr\YiiDbRectorRules\Rules\DsnUsageRector;
 use Batyrmastyr\YiiDbRectorRules\Rules\RawTableNamesRector;
 use Batyrmastyr\YiiDbRectorRules\Rules\RemoveInvalidArgumentExceptionRector;
 use Batyrmastyr\YiiDbRectorRules\Rules\ReplaceIndexConstraintRector;
@@ -14,6 +15,7 @@ return RectorConfig::configure()->withRules([
     RawTableNamesRector::class,
     ReplaceIndexConstraintRector::class,
     RemoveInvalidArgumentExceptionRector::class,
+    DsnUsageRector::class,
 ])->withConfiguredRule(RenameClassConstFetchRector::class, [
     new RenameClassAndConstFetch('Yiisoft\Db\Schema\SchemaInterface', 'TYPE_BOOLEAN', 'Yiisoft\Db\Constant\ColumnType', 'BOOLEAN'),
     new RenameClassAndConstFetch('Yiisoft\Db\Schema\SchemaInterface', 'TYPE_BIT', 'Yiisoft\Db\Constant\ColumnType', 'BIT'),
